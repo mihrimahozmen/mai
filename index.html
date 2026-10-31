@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mihrimah Özmen</title>
+<meta name="description" content="Mihrimah Özmen, Ph.D. — AI-driven decision intelligence for complex, critical systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Lato:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one calm reading column (max 1080px); a gradient "water at dusk" hero; sections separated by space and small drop markers, not boxes. */
+:root{
+  --bg:#FAF6F2; --surface:#FFFFFF; --tint:#F6E9E3; --ink:#2E3446; --muted:#6B6672;
+  --navy:#33496D; --coral:#D9604C; --coral-soft:#EF7A63; --water:#7FA6CB; --line:#EADFD8;
+  --hero-a:#34507A; --hero-b:#8E7FA3; --hero-c:#EF9A82;
+  --display:"Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  --body:Lato, Calibri, "Segoe UI", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1B2232; --surface:#232C40; --tint:#2B3247; --ink:#ECE6E1; --muted:#A9A3AE;
+  --navy:#B9CBE3; --coral:#F28C77; --coral-soft:#F28C77; --water:#8DB3D3; --line:#333D55; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1B2232; --surface:#232C40; --tint:#2B3247; --ink:#ECE6E1; --muted:#A9A3AE;
+  --navy:#B9CBE3; --coral:#F28C77; --coral-soft:#F28C77; --water:#8DB3D3; --line:#333D55; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+a{color:var(--navy);text-decoration-color:var(--water);text-underline-offset:3px}
+a:hover{color:var(--coral)}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);color:var(--navy);text-wrap:balance;line-height:1.15;margin:0}
+h2{font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--body);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);display:flex;align-items:center;gap:8px}
+.drop{display:inline-block;width:10px;height:13.5px;flex:none}
+.mono{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 0;padding:12px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px))}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;color:var(--navy);text-decoration:none;font-size:18px;letter-spacing:.08em}
+.brand svg{width:16px;height:22px}
+nav.top ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;flex-wrap:wrap}
+nav.top ul a{text-decoration:none;color:var(--ink);font-size:15px}
+nav.top ul a:hover{color:var(--coral)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:28px;margin-top:20px;color:#fff;
+  background:linear-gradient(120deg,var(--hero-a) 0%,var(--hero-b) 55%,var(--hero-c) 100%)}
+.hero-in{position:relative;z-index:1;padding:clamp(28px,6vw,64px);display:grid;gap:22px;max-width:760px}
+.hero h1{color:#fff;font-size:clamp(38px,6.4vw,66px);font-weight:800;letter-spacing:-.02em}
+.hero .role{font-size:clamp(16px,2vw,19px);color:#FBE3DB;max-width:56ch}
+.hero .thesis{font-family:var(--display);font-size:clamp(21px,2.8vw,28px);font-weight:500;line-height:1.3;max-width:30ch}
+.hero .links{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;
+  background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.pill:hover{background:rgba(255,255,255,.28);color:#fff}
+.hero-drops{position:absolute;inset:0;pointer-events:none}
+.hero-drops svg{position:absolute}
+
+section{padding-block:clamp(56px,8vw,88px) 0;scroll-margin-top:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:28px;max-width:720px}
+.lede{color:var(--muted);max-width:65ch}
+
+/* impact */
+.impact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.impact article{background:var(--surface);border-radius:20px;padding:22px;display:grid;gap:8px;align-content:start;border:1px solid var(--line)}
+.impact .who{font-family:var(--display);font-size:22px;font-weight:700;color:var(--navy)}
+.impact p{color:var(--muted);font-size:15.5px}
+
+/* research */
+.frontiers{display:grid;gap:0;border-top:1px solid var(--line)}
+.frontier{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:12px 32px;padding:24px 0;border-bottom:1px solid var(--line)}
+.frontier p{color:var(--muted)}
+@media (max-width:700px){.frontier{grid-template-columns:1fr}}
+.methods{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tag{font-size:13.5px;padding:5px 12px;border-radius:999px;background:var(--tint);color:var(--ink)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start;min-width:0}
+.proj .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.role-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.proj p{color:var(--muted);font-size:15.5px}
+.proj .partner{font-size:14.5px;color:var(--ink)}
+.subhead{font-family:var(--display);font-size:22px;font-weight:700;color:var(--navy);margin:40px 0 16px}
+.simple-list{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.simple-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.simple-list li .d{color:var(--muted);font-size:15px;grid-column:1/-1}
+@media (max-width:560px){.simple-list li{grid-template-columns:1fr}}
+
+/* publications */
+.pub-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.chip{font:inherit;font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--bg);border-color:var(--navy)}
+.chip .n{font-family:var(--mono);font-size:12px;opacity:.75;margin-left:4px}
+.search{flex:1 1 220px;min-width:0;font:inherit;font-size:15px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.pubs{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.pub{display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.pub .yr{font-family:var(--mono);font-size:14px;color:var(--coral);padding-top:2px}
+.pub .t{font-weight:700;color:var(--ink)}
+.pub .a,.pub .v{color:var(--muted);font-size:15px}
+.pub .a b{color:var(--ink)}
+.pub .v i{color:var(--ink)}
+.status{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:6px;background:var(--tint);color:var(--coral);margin-left:6px;vertical-align:2px}
+.empty{padding:20px 0;color:var(--muted)}
+
+/* teaching */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+.courses{display:grid;gap:18px}
+.courses div{display:grid;gap:4px}
+.courses .inst{font-weight:700;color:var(--navy)}
+.courses p{color:var(--muted);font-size:15.5px}
+.inits{display:grid;gap:18px}
+.init{background:var(--tint);border-radius:20px;padding:22px;display:grid;gap:8px}
+.init p{font-size:15.5px}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:120px 18px minmax(0,1fr);gap:0 16px;position:relative}
+.timeline .when{font-family:var(--mono);font-size:13.5px;color:var(--muted);padding:3px 0 26px;font-variant-numeric:tabular-nums}
+.timeline .rail{position:relative}
+.timeline .rail::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--line)}
+.timeline li:last-child .rail::before{bottom:auto;height:14px}
+.timeline .rail svg{position:relative;width:18px;height:24px;display:block}
+.timeline .what{padding-bottom:26px;display:grid;gap:4px}
+.timeline .what .org{color:var(--muted);font-size:15.5px}
+.timeline .what ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px}
+@media (max-width:560px){.timeline li{grid-template-columns:18px minmax(0,1fr)}.timeline .when{grid-column:2;padding:0}.timeline .rail{grid-row:1/span 2;grid-column:1}.timeline .what{grid-column:2}}
+
+/* contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,44px);display:grid;gap:22px;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+.mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mail code{font-family:var(--mono);font-size:15px;background:var(--tint);padding:8px 12px;border-radius:10px;color:var(--ink);user-select:all;overflow-wrap:anywhere}
+.btn{font:inherit;font-size:14.5px;font-weight:700;padding:8px 16px;border-radius:999px;border:0;background:var(--coral);color:#fff;cursor:pointer}
+.btn:hover{filter:brightness(1.05)}
+.prof{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.prof a{font-weight:700}
+footer{padding-block:48px 40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><symbol id="drop" viewBox="0 0 100 135"><path d="M50 0C62 27 100 54 100 86c0 30-22 49-50 49S0 116 0 86C0 54 38 27 50 0Z"/></symbol></defs>
+</svg>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>MAİ</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div class="hero-drops" aria-hidden="true">
+      <svg viewBox="0 0 100 135" style="width:min(34vw,330px);right:-40px;top:-70px;fill:#fff;opacity:.14"><use href="#drop"/></svg>
+      <svg viewBox="0 0 100 135" style="width:min(22vw,210px);right:12%;bottom:-40px;fill:#EF7A63;opacity:.55"><use href="#drop"/></svg>
+      <svg viewBox="0 0 100 135" style="width:min(12vw,110px);right:4%;top:44%;fill:#fff;opacity:.2"><use href="#drop"/></svg>
+      <svg viewBox="0 0 100 135" style="width:min(7vw,60px);right:30%;top:16%;fill:#F6BCAD;opacity:.45"><use href="#drop"/></svg>
+    </div>
+    <div class="hero-in">
+      <p class="eyebrow" style="color:#FBE3DB">Industrial Engineer · Researcher · Educator</p>
+      <h1>Mihrimah Özmen, Ph.D.</h1>
+      <p class="thesis">AI-driven decision intelligence for complex, critical systems.</p>
+      <p class="role">Instructor, Engineering and Technology Management, University of Louisiana at Lafayette. Former Associate Professor of Industrial Engineering, Erciyes University, Türkiye.</p>
+      <div class="links">
+        <a class="pill" href="https://scholar.google.com.tr/citations?hl=tr&amp;user=XqXwp7kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="pill" href="https://orcid.org/0000-0002-2648-5865" target="_blank" rel="noopener">ORCID</a>
+        <a class="pill" href="https://www.linkedin.com/in/mihrimah-ozmen-67797771/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="https://github.com/mihrimahozmen" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="impact" aria-labelledby="impact-h">
+    <div class="sec-head">
+      <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>From theory to practice</p>
+      <h2 id="impact-h">Research that partners put to work</h2>
+      <p class="lede">I develop methods that unite machine learning, optimization, and multi-criteria decision analysis under uncertainty, and I build them with the organizations that use them.</p>
+    </div>
+    <div class="impact">
+      <article><span class="mono">2015–2017</span><span class="who">TurkNet</span><p>My churn prediction model was adopted by TurkNet, one of Türkiye's major internet service providers, for operational use.</p></article>
+      <article><span class="mono">2021–2024</span><span class="who">Turkish Red Crescent</span><p>A TÜBİTAK-funded real-time decision support system for disaster logistics, built with Kızılay and Türkiye's Ministry of Environment, Urbanization and Climate Change.</p></article>
+      <article><span class="mono">2018–2019</span><span class="who">Çilek Furniture</span><p>Kansei engineering, rough sets, and genetic algorithms turned customer preferences into a new product design and methodology.</p></article>
+    </div>
+  </section>
+
+  <section id="research" aria-labelledby="research-h">
+    <div class="sec-head">
+      <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>Research</p>
+      <h2 id="research-h">Current frontiers</h2>
+    </div>
+    <div class="frontiers">
+      <div class="frontier"><h3>Physics-informed machine learning for engineering design</h3><p>Physics-guided and GAN-augmented models that predict heat transfer in synthetic jets, aimed at accelerating electronics thermal design.</p></div>
+      <div class="frontier"><h3>Predict-then-optimize for resilient disaster response</h3><p>Earthquake and flood damage prediction linked to decisions on shelter allocation, last-mile relief distribution, and drone resupply.</p></div>
+      <div class="frontier"><h3>Trustworthy agentic AI</h3><p>Early warning signals of task failure in multi-agent LLM systems, and human-centered AI agents that support reflective decisions in engineering education.</p></div>
+    </div>
+    <div class="methods" aria-label="Methods">
+      <span class="tag">Cost-sensitive metaheuristic learning</span><span class="tag">Imbalanced data</span><span class="tag">Multi-criteria decision analysis</span><span class="tag">Robust and stochastic decision models</span><span class="tag">Explainable AI</span><span class="tag">GIS and satellite data</span>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="sec-head">
+      <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>Funded work</p>
+      <h2 id="projects-h">Projects and partnerships</h2>
+    </div>
+    <div class="projects" id="project-list"></div>
+    <h3 class="subhead">Fellowships</h3>
+    <ul class="simple-list" id="fellowship-list"></ul>
+    <h3 class="subhead">Proposals in preparation</h3>
+    <ul class="simple-list" id="proposal-list"></ul>
+  </section>
+
+  <section id="publications" aria-labelledby="pubs-h">
+    <div class="sec-head">
+      <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>Publications</p>
+      <h2 id="pubs-h">Papers, chapters, and talks</h2>
+    </div>
+    <div class="pub-tools">
+      <div id="pub-filters" style="display:flex;flex-wrap:wrap;gap:8px" role="group" aria-label="Filter by type"></div>
+      <input class="search" id="pub-search" type="search" placeholder="Search title, venue, or co-author" aria-label="Search publications">
+    </div>
+    <ul class="pubs" id="pub-list"></ul>
+  </section>
+
+  <section id="teaching" aria-labelledby="teaching-h">
+    <div class="sec-head">
+      <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>Teaching</p>
+      <h2 id="teaching-h">Courses and AI in engineering education</h2>
+    </div>
+    <div class="two">
+      <div class="courses">
+        <div><span class="inst">University of Louisiana at Lafayette</span><span class="mono">2025–present</span><p>Engineering Economy (UG, with AI-EcoEngine) · Project Management (UG) · Production Planning and Control (UG) · Data Analysis for Engineering Projects (G)</p></div>
+        <div><span class="inst">Auburn University</span><span class="mono">2024–2025</span><p>Engineering Economy (UG), three semesters</p></div>
+        <div><span class="inst">Erciyes University</span><span class="mono">2018–2024</span><p>Graduate: Decision Analysis (MCDM, utility theory) · Machine Learning · Applied Optimization with MATLAB</p><p>Undergraduate: Engineering Economy · Project Management · Facility Planning · Machine Learning · Work Study · Materials Management</p></div>
+      </div>
+      <div class="inits">
+        <div class="init"><h3>AI-EcoEngine</h3><span class="mono">Engineering Economy</span><p>A semester-long "SmartCampus Café" investment project where student teams make AI-assisted decisions under uncertainty. A "Verified by Human" protocol, interaction logs, and a three-level engagement rubric train students to check and correct AI outputs instead of accepting them.</p></div>
+        <div class="init"><h3>AI Stakeholder Simulation</h3><span class="mono">Project Management Planning &amp; Control</span><p>Generative-AI role-play in which students negotiate with simulated stakeholders, such as frustrated clients and resistant team members, to build conflict resolution, ethical judgment, and leadership. Includes a shareable prompt library for college-wide use.</p></div>
+      </div>
+    </div>
+    <h3 class="subhead">Graduate supervision</h3>
+    <ul class="simple-list" id="student-list"></ul>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="sec-head">
+      <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>Experience</p>
+      <h2 id="exp-h">Appointments and education</h2>
+    </div>
+    <ol class="timeline" id="timeline"></ol>
+    <h3 class="subhead">Service</h3>
+    <ul class="simple-list">
+      <li><span>Reviewer for <i>Omega</i>, <i>Computers &amp; Industrial Engineering</i>, <i>Expert Systems</i>, and <i>Scientific Reports</i></span></li>
+      <li><span>UL Lafayette: curriculum development and accreditation; co-faculty advisor, Associated Builders and Contractors (ABC) student chapter</span></li>
+      <li><span>Erciyes University: accreditation committee, internship committee, Ph.D. and M.S. thesis committees</span></li>
+      <li><span>Prior industry: production engineering (Eraslan Textile), R&amp;D and ERP engineering (Yataş), commercial banking (İş Bankası)</span></li>
+    </ul>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="contact">
+      <div style="display:grid;gap:14px;align-content:start">
+        <p class="eyebrow"><svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>Contact</p>
+        <h2 id="contact-h">Let's work together</h2>
+        <p class="lede">Open to research collaborations in decision intelligence, disaster logistics, and AI in engineering education.</p>
+        <div class="mail"><code id="email">mihrimahozmen@gmail.com</code><button class="btn" id="copy" type="button">Copy email</button></div>
+        <p class="mono">Lafayette, Louisiana</p>
+      </div>
+      <ul class="prof">
+        <li><a href="https://scholar.google.com.tr/citations?hl=tr&amp;user=XqXwp7kAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0002-2648-5865" target="_blank" rel="noopener">ORCID 0000-0002-2648-5865</a></li>
+        <li><a href="https://www.linkedin.com/in/mihrimah-ozmen-67797771/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/mihrimahozmen" target="_blank" rel="noopener">github.com/mihrimahozmen</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Mihrimah Özmen</span><span>Last updated October 2026</span></footer>
+</main>
+
+<script>
+const DROP = '<svg class="drop" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg>';
+
+const projects = [
+  {role:"PI", years:"2021–2024", title:"GEAKDES: Real-Time Decision Support System for Resilient Distribution, Operations, and Disaster Process Management",
+   funder:"TÜBİTAK 1001", partner:"Turkish Red Crescent (Kızılay) and Ministry of Environment, Urbanization and Climate Change of Türkiye",
+   text:"Partners provided data, problem definition, testing, and field use."},
+  {role:"Co-PI", years:"2021–2025", title:"Post-Earthquake Ideal Housing Design Criteria and Decision Support System",
+   funder:"TÜBİTAK 1001", partner:"", text:"Interdisciplinary project on post-earthquake housing design and decision support."},
+  {role:"Co-PI", years:"2018–2019", title:"Emotional Design in Next-Generation Furniture Based on Genetic Algorithms",
+   funder:"TÜBİTAK TEYDEB industrial R&D", partner:"Çilek Furniture",
+   text:"Kansei engineering, rough sets, and genetic algorithms translated customer preferences into design parameters, delivering a new product design and methodology."},
+  {role:"Co-PI", years:"2015", title:"Kayseri Logistics Center Pre-Feasibility Study",
+   funder:"Presidency of Strategy and Budget of Türkiye", partner:"",
+   text:"A multi-criteria location selection model for a regional logistics center, leading to an article in Artificial Intelligence Review and a paper at MCDM 2015."},
+];
+const fellowships = [
+  {title:"TÜBİTAK 2219 International Postdoctoral Research Fellowship, Auburn University", years:"2024–2025"},
+  {title:"Doctoral Fellow, TurkNet Churn-Based Decision Support Information System", years:"2015–2017",
+   d:"SAN-TEZ Industry–University Collaborative Thesis Program. Basis of the Ph.D. dissertation; the churn model was adopted by TurkNet."},
+  {title:"Doctoral Fellow, Priority Wastes and Integrated Waste Management for the Aluminum Manufacturing Sector", years:"2013–2015",
+   d:"TÜBİTAK 1001. Multi-criteria models to prioritize industrial wastes and support waste management decisions."},
+];
+const proposals = [
+  {title:"Co-PI, Real-Time Physics-Informed Machine Learning and Computer Vision for Accelerating Electronics Thermal Design", years:"2026", d:"National Science Foundation"},
+  {title:"PI, REACH: Reflective Engineering Agentic AI Checkpoints", years:"2026", d:"A human-centered agentic AI for reflective engineering decisions. Louisiana Board of Regents Support Fund (BoRSF)"},
+];
+
+// type: review | accepted | intl | natl | chapter | conf
+const pubs = [
+  {type:"review", y:"", a:"Özmen, M.", t:"Early warning signals of task failure in multi-agent LLM systems", v:"IEEE Transactions on Emerging Topics in Computational Intelligence"},
+  {type:"review", y:"", a:"Üge, M. A., & Özmen, M.", t:"Spatio-temporal earthquake damage prediction with GNSS: A causal and explainable AI approach", v:"GPS Solutions"},
+  {type:"review", y:"", a:"Eraslan Çelik, M., Soylu, B., & Özmen, M.", t:"A predict-then-optimize approach for flood shelter allocation using building damage-level predictions", v:"Hydrological Sciences Journal"},
+  {type:"review", y:"", a:"Uludag, I., Smith, A. E., & Ozmen, M.", t:"The space allocation problem for temporary displays for a single promotional period in supermarkets", v:"INFORMS Journal on Applied Analytics"},
+  {type:"accepted", y:"", a:"Naji, K., Özmen, M., & Arik, M.", t:"Towards a physics-guided and GAN-augmented machine learning framework for predicting synthetic jet heat transfer", v:"Journal of Thermal Science and Engineering Applications", x:"Preprint: SSRN 5748806"},
+  {type:"intl", y:"2025", a:"Gedik, Y., Özcan, O., Özmen, M., Özcan, O., & Akay, S. S.", t:"Assessment of building damage from the 2020 Sivrice earthquake using a satellite-based rapid seismic screening method", v:"Scientific Reports", x:"15(1), 37277"},
+  {type:"intl", y:"2025", a:"Celik, M. E., Özmen, M., & Sahin, O.", t:"Predicting earthquake damage using a PAR-CGA: Parallel cost-sensitive genetic algorithm-based rule classifier", v:"Computational Geosciences", x:"29(6), 1–23"},
+  {type:"intl", y:"2025", a:"Özmen, M.", t:"Analyzing public environmental awareness using advanced machine learning for sustainable urban transportation", v:"Sustainable Development", x:"33(6), 8619–8637"},
+  {type:"intl", y:"2025", a:"Hacilar, H., Dedeturk, B. K., Ozmen, M., Celik, M. E., & Gungor, V. C.", t:"Accelerated artificial bee colony optimization for cost-sensitive neural networks in multi-class problems", v:"Expert Systems", x:"42(5), e70045"},
+  {type:"intl", y:"2024", a:"Özmen, M.", t:"DBDM: Dominance-based decision making and GIS-integrated earthquake vulnerability assessment of Elazığ, Türkiye", v:"IEEE Access", x:"12, 19806–19826"},
+  {type:"intl", y:"2023", a:"Özmen, M.", t:"Evaluating earthquake vulnerability of 2023 Kayseri, Türkiye via BWM-ABAC method", v:"Sādhanā", x:"48(3), 179"},
+  {type:"intl", y:"2020", a:"Özmen, M., & Aydoğan, E. K.", t:"Robust multi-criteria decision-making methodology for real-life logistics center location problem", v:"Artificial Intelligence Review", x:"53, 725–751"},
+  {type:"intl", y:"2020", a:"Özmen, M., Aydoğan, E. K., Delice, Y., & Toksarı, M. D.", t:"Churn prediction in Türkiye's telecommunications sector: A proposed multi-objective cost-sensitive ant colony optimization", v:"WIREs Data Mining and Knowledge Discovery", x:"10(1), e1338"},
+  {type:"intl", y:"2020", a:"Akgül, E., Özmen, M., Sinanoğlu, C., & Kızılkaya Aydoğan, E.", t:"Rough Kansei mining model for market-oriented product design", v:"Mathematical Problems in Engineering", x:"2020(1), 6267031"},
+  {type:"intl", y:"2019", a:"Aydoğan, E. K., Özmen, M., & Delice, Y.", t:"CBR-PSO: Cost-based rough particle swarm optimization approach for high-dimensional imbalanced problems", v:"Neural Computing and Applications", x:"31, 6345–6363"},
+  {type:"intl", y:"2019", a:"Özmen, M.", t:"Logistics competitiveness of OECD countries using an improved TODIM method", v:"Sādhanā", x:"44(5), 108"},
+  {type:"intl", y:"2017", a:"Akgül, E., Aydoğan, E. K., Özmen, M., & Türksoy, H. G.", t:"Optimization of the Murata vortex spinning machine parameters by the SMAA-MOORA approach", v:"Industria Textila", x:"68(5), 323–331"},
+  {type:"intl", y:"2017", a:"Aydoğan, E. K., & Özmen, M.", t:"The stochastic VIKOR method and its use in reverse logistic option selection problem", v:"RAIRO – Operations Research", x:"51(2), 375–389"},
+  {type:"intl", y:"2016", a:"Özmen, M., Aydoğan, E. K., Ateş, N., & Uzal, N.", t:"Developing a decision-support system for waste management in aluminum production", v:"Environmental Modeling & Assessment", x:"21, 803–817"},
+  {type:"natl", y:"2023", a:"Özmen, M., Çelik, R., Çelik, Ü. N., Teber, M., Aktaş, D. C., & Kaya, M. F.", t:"Last mile humanitarian aid delivery model with electric vehicles to disaster areas", v:"Bitlis Eren University Journal of Science", x:"12(4), 1275–1288"},
+  {type:"natl", y:"2022", a:"Özmen, M., Karacan, A. N., & Şahin, H. İ.", t:"Multi-objective assembly line balancing with human-robot collaboration", v:"Adıyaman University Journal of Engineering Sciences", x:"9(16), 10–36"},
+  {type:"natl", y:"2020", a:"Özmen, M.", t:"Evaluation of OECD countries with SMAA-EDAS method in terms of telecommunication sector", v:"Niğde Ömer Halisdemir University Journal of Engineering Sciences", x:"9(1), 224–237"},
+  {type:"natl", y:"2018", a:"Özmen, M., Delice, Y., & Aydoğan, E. K.", t:"Customer segmentation with PSO in telecommunication sector", v:"Journal of Information Technologies", x:"11(2), 163–173"},
+  {type:"natl", y:"2017", a:"Aydoğan, E. K., & Özmen, M.", t:"Attribute reduction in stochastic information systems based on α-dominance", v:"Journal of Information Technologies", x:"10(2), 211–219"},
+  {type:"chapter", y:"2020", a:"Akgül, E., Özmen, M., Kızılkaya Aydoğan, E., & Sinanoğlu, C.", t:"Baby cradle design with Kansei knowledge mining based on rough set theory", v:"Customer Oriented Product Design (C. Kahraman & S. Cebi, Eds.), Springer", x:"pp. 469–478"},
+  {type:"chapter", y:"2019", a:"Katırcıoğlu, G., Kızılkaya Aydoğan, E., Özmen, M., & Akgül, E.", t:"Determination of denim fabric's air permeability with image processing using fuzzy c-means", v:"Intelligent and Fuzzy Techniques in Big Data Analytics and Decision Making (C. Kahraman et al., Eds.), Springer", x:"pp. 1208–1214"},
+  {type:"conf", y:"2025", a:"Naji, K., Özmen, M., & Arik, M.", t:"Development of a fundamental understanding of synthetic jets heat transfer based on machine learning", v:"ASME International Mechanical Engineering Congress and Exposition (IMECE 2025)"},
+  {type:"conf", y:"2022", a:"Özmen, M., Özcan, O., & Gedik, Y.", t:"Satellite- and image-based damage detection using optical and SAR data", v:"Quaternary Symposium of Türkiye"},
+  {type:"conf", y:"2020", a:"Özmen, M., Kaya, N., & Kapan Ulusoy, S.", t:"Rough set based aircraft failure reliability prediction model in aviation sector and its application in Türkiye", v:"International Conference on Access to Recent Advances in Engineering and Digitalization"},
+  {type:"conf", y:"2019", a:"Kızılkaya Aydoğan, E., & Özmen, M.", t:"Travel and tourism competitiveness of economies around the world using rough SWARA and TODIM method", v:"Strategic Innovative Marketing and Tourism, Chios, Greece"},
+  {type:"conf", y:"2015", a:"Özmen, M., Kızılkaya Aydoğan, E., & Zaralı, F.", t:"A multi-criteria decision-making approach for logistics center location selection using SMAA-TODIM", v:"23rd International Conference on Multiple Criteria Decision Making (MCDM 2015), Hamburg, Germany"},
+  {type:"conf", y:"2014", a:"Kızılkaya Aydoğan, E., Ateş, N., Uzal, N., & Özmen, M.", t:"Determining the priority waste in aluminum manufacturing sector using the SMAA-2 method", v:"Joint International Symposium on CIE44 and IMSS'14, Istanbul, Türkiye"},
+];
+const TYPES = [["all","All"],["review","Under review"],["accepted","Accepted"],["intl","Journal articles"],["natl","Journals in Türkiye"],["chapter","Book chapters"],["conf","Conference papers"]];
+
+const students = [
+  {who:"Dontray Noel", deg:"M.S. (non-thesis)", t:"Requirements-Driven Simulation and Verification of a Robotic Sorting Arm in MATLAB/Simulink", y:"In progress · expected Fall 2026"},
+  {who:"Mehlika Eraslan Çelik", deg:"Ph.D.", t:"Post-Disaster Damage Assessment with Machine Learning Techniques", y:"In progress · expected Fall 2026"},
+  {who:"Büşra Polat", deg:"M.S.", t:"Evaluation of Customer Satisfaction with Data Mining Methods", y:"2024"},
+  {who:"Sevgi Gülçin Aktemur", deg:"M.S.", t:"Sentiment Analysis with Social Media Data", y:"2023"},
+  {who:"Nurçin Kaya", deg:"M.S.", t:"Rough Cluster Based Aircraft Failure Reliability Prediction Model in Aviation Sector and Its Application in Türkiye", y:"2020"},
+  {who:"Gözde Katırcıoğlu", deg:"M.S.", t:"Investigation of Denim Fabrics by Image Processing and Estimation of Fabric Air Permeability with Artificial Neural Network", y:"2019"},
+];
+
+const timeline = [
+  {when:"2025–present", what:"Instructor, Engineering and Technology Management", org:"University of Louisiana at Lafayette",
+   b:["Teaches engineering economics, project management, production planning and control, and data analysis; designs semester-long industry projects","Contributes to proposal development, including an NSF proposal in preparation; supervises M.S. projects and serves on thesis committees"]},
+  {when:"2024–2025", what:"Visiting Research Scholar (TÜBİTAK 2219 Postdoctoral Fellow)", org:"Industrial and Systems Engineering, Auburn University",
+   b:["Developed a GPU-accelerated drone resupply heuristic for last-mile distribution in disaster relief","Taught Engineering Economy"]},
+  {when:"2020–2025", what:"Associate Professor, Industrial Engineering", org:"Erciyes University, Türkiye",
+   b:["PI of the TÜBİTAK-funded GEAKDES project with Kızılay and the Ministry of Environment, Urbanization and Climate Change","Co-PI of a TÜBİTAK-funded project on post-earthquake housing design","Accreditation and internship committees; supervised Ph.D. and M.S. theses"]},
+  {when:"2018–2020", what:"Assistant Professor, Industrial Engineering", org:"Erciyes University, Türkiye",
+   b:["Published in Artificial Intelligence Review, WIREs Data Mining and Knowledge Discovery, and Neural Computing and Applications","Contributed to curriculum development and university committees"]},
+  {when:"2017", what:"Ph.D., Industrial Engineering", org:"Erciyes University, Türkiye",
+   b:["Dissertation: Meta-Heuristic Based Decision Support System for Customer Churn Management in the Telecommunications Sector (SAN-TEZ Industry–University Collaborative Thesis Program)"]},
+  {when:"2013–2018", what:"Research Assistant, Industrial Engineering", org:"Erciyes University, Türkiye",
+   b:["Supported funded research projects, simulations, proposals, and academic conferences"]},
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+document.getElementById("project-list").innerHTML = projects.map(p => `
+  <article class="proj">
+    <div class="meta"><span class="role-tag">${esc(p.role)} · ${esc(p.funder)}</span><span class="mono">${esc(p.years)}</span></div>
+    <h3>${esc(p.title)}</h3>
+    ${p.partner ? `<span class="partner">Partner: ${esc(p.partner)}</span>` : ""}
+    <p>${esc(p.text)}</p>
+  </article>`).join("");
+
+const listItems = arr => arr.map(f => `<li><span>${esc(f.title)}</span><span class="mono">${esc(f.years)}</span>${f.d ? `<span class="d">${esc(f.d)}</span>` : ""}</li>`).join("");
+document.getElementById("fellowship-list").innerHTML = listItems(fellowships);
+document.getElementById("proposal-list").innerHTML = listItems(proposals);
+
+document.getElementById("student-list").innerHTML = students.map(s =>
+  `<li><span><b>${esc(s.who)}</b> · ${esc(s.deg)}</span><span class="mono">${esc(s.y)}</span><span class="d">${esc(s.t)}</span></li>`).join("");
+
+document.getElementById("timeline").innerHTML = timeline.map(t => `
+  <li><span class="when">${esc(t.when)}</span>
+    <span class="rail"><svg viewBox="0 0 100 135" aria-hidden="true" style="fill:var(--coral)"><use href="#drop"/></svg></span>
+    <div class="what"><h3>${esc(t.what)}</h3><span class="org">${esc(t.org)}</span>
+      <ul>${t.b.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></li>`).join("");
+
+// publications
+let active = "all";
+const filtersEl = document.getElementById("pub-filters");
+const searchEl = document.getElementById("pub-search");
+const listEl = document.getElementById("pub-list");
+const count = k => k === "all" ? pubs.length : pubs.filter(p => p.type === k).length;
+filtersEl.innerHTML = TYPES.map(([k, l]) => `<button type="button" class="chip" id="f-${k}" data-k="${k}" aria-pressed="${k === active}">${l}<span class="n">${count(k)}</span></button>`).join("");
+const highlight = a => esc(a).replace(/(Özmen, M\.|Ozmen, M\.)/g, "<b>$1</b>");
+const label = {review:"Under review", accepted:"Accepted"};
+function renderPubs(){
+  const q = searchEl.value.trim().toLowerCase();
+  const rows = pubs.filter(p => (active === "all" || p.type === active) &&
+    (!q || (p.t + " " + p.v + " " + p.a).toLowerCase().includes(q)));
+  listEl.innerHTML = rows.length ? rows.map(p => `
+    <li class="pub"><span class="yr">${p.y || "—"}</span>
+      <div><div class="t">${esc(p.t)}${label[p.type] ? `<span class="status">${label[p.type]}</span>` : ""}</div>
+      <div class="a">${highlight(p.a)}</div>
+      <div class="v"><i>${esc(p.v)}</i>${p.x ? `, ${esc(p.x)}` : ""}</div></div></li>`).join("")
+    : `<li class="empty">No publications match "${esc(searchEl.value)}".</li>`;
+}
+filtersEl.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  active = b.dataset.k;
+  filtersEl.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.k === active));
+  renderPubs();
+});
+searchEl.addEventListener("input", renderPubs);
+renderPubs();
+
+// copy email
+document.getElementById("copy").addEventListener("click", async e => {
+  const btn = e.currentTarget, email = document.getElementById("email").textContent;
+  try { await navigator.clipboard.writeText(email); btn.textContent = "Copied"; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById("email"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press Ctrl+C"; }
+  setTimeout(() => btn.textContent = "Copy email", 2200);
+});
+</script>
+
+</body>
+</html>
